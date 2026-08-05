@@ -58,12 +58,7 @@ Ce projet est développé dans le cadre du projet **SEDAI**. Tous droits réserv
 
 ---
 
-## 👨‍💻 À propos de l'auteur
-
-**Ezechiel Merveil Bara** est titulaire d'une **Licence en Maintenance des Systèmes**, option *Maintenance Automobile*, obtenue avec **mention excellent** à l'INSTI de Lokossa (UNSTIM), au Bénin.
-
-Passionné de **mécatronique**, de **robotique** et d'**intelligence artificielle**, il a développé **SEDAI** — un Système Embarqué de Diagnostic Automobile Intelligent combinant IA embarquée et électronique (Raspberry Pi, interface OBD-II).
-
-Titulaire également d'un **Baccalauréat série F1** (Construction Mécanique) obtenu avec mention, il s'intéresse à tout ce qui relie l'électronique, l'informatique, la mécanique et l'automatique : **Mécatronique / Robotique**.
+## Auteur
+BARA Olagnandjou Oluwadunni Ezechiel Merveil
 
 > 🌍 Bénin | 🔗 [LinkedIn](https://www.linkedin.com/in/ezechiel-bara)
