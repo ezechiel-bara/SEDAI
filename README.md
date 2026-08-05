@@ -1,4 +1,4 @@
-# 🚗 SEDAI — Système Embarqué de Diagnostic Automobile Intelligent
+# SEDAI Système Embarqué de Diagnostic Automobile Intelligent
 
 SEDAI est un système complet de diagnostic automobile intelligent, conçu pour fonctionner sur **Raspberry Pi 5** et communicant avec une application **Flutter** sur PC/mobile via WebSocket.
 
@@ -16,14 +16,14 @@ SEDAI/
 
 ## 🧩 Les deux composants
 
-### 🔧 [RASPBERRY_PROGRAM](./RASPBERRY_PROGRAM/README.md)
+### [RASPBERRY_PROGRAM](./RASPBERRY_PROGRAM/README.md)
 Programme Python embarqué sur le **Raspberry Pi 5**. Il :
 - Se connecte à la voiture via le port **OBD-II (ELM327)**
 - Lit les codes défauts (DTC), les PIDs en temps réel
 - Utilise une **IA locale** (LLM) pour analyser et expliquer les pannes en voix
 - Expose les données via un **serveur WebSocket** pour l'application Flutter
 
-### 📱 [SEDAI_APP](./SEDAI_APP/README.md)
+### [SEDAI_APP](./SEDAI_APP/README.md)
 Application **Flutter** multi-plateforme. Elle :
 - Se connecte au Raspberry Pi via WebSocket
 - Affiche les données du véhicule en temps réel (jauges, graphiques)
@@ -32,14 +32,14 @@ Application **Flutter** multi-plateforme. Elle :
 
 ---
 
-## 🚀 Démarrage rapide
+## Démarrage rapide
 
 1. Déployer le programme sur le Raspberry Pi → voir [RASPBERRY_PROGRAM/README.md](./RASPBERRY_PROGRAM/README.md)
 2. Lancer l'application Flutter → voir [SEDAI_APP/README.md](./SEDAI_APP/README.md)
 
 ---
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 | Composant         | Technologie                          |
 |-------------------|--------------------------------------|
