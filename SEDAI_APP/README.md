@@ -1,154 +1,142 @@
-# AUTO JAPAN — Application Flutter de Diagnostic Automobile Intelligent
+# 📱 SEDAI — Application Flutter (Windows / Android / Web)
 
-Application mobile Flutter pour le système embarqué de diagnostic automobile AUTO JAPAN (Bénin).
+Application **Flutter** multi-plateforme du système SEDAI.
+Elle se connecte au **Raspberry Pi 5** via WebSocket pour afficher les données du véhicule en temps réel, lancer des diagnostics IA, interagir par la voix et générer des rapports PDF.
 
 ---
 
-## Architecture de l'application
+## ⚙️ Fonctionnalités
+
+| Fonctionnalité | Description |
+|---|---|
+| 🖥️ **Dashboard temps réel** | 8 jauges radiales animées : vitesse, RPM, température, MAF, lambda, batterie, MAP, pression huile |
+| 🔍 **Diagnostic IA** | Envoi d'une commande au Raspberry Pi → affichage du rapport généré par le LLM (Phi-3 / Gemma3) |
+| 🎙️ **Push-to-Talk** | Activation/désactivation du micro USB branché sur le Raspberry Pi |
+| 📋 **Historique** | Sauvegarde locale des diagnostics avec aperçu, détail et suppression |
+| ⚙️ **Paramètres** | Modification de l'IP, du port WebSocket et des informations du véhicule |
+| 📄 **Rapport PDF** | Génération d'un rapport de diagnostic imprimable (packages `pdf` + `printing`) |
+| 🌙 **Thème sombre** | Interface moderne à thème automobile sombre (Material 3) |
+
+---
+
+## 📊 Jauges disponibles sur le Dashboard
+
+| Jauge | Unité | Plage | PID OBD-II |
+|---|---|---|---|
+| Vitesse | km/h | 0 – 220 | `0x0D` |
+| Régime moteur | RPM | 0 – 8 000 | `0x0C` |
+| Température moteur | °C | 0 – 130 | `0x05` |
+| Débit air (MAF) | g/s | 0 – 40 | `0x10` |
+| Sonde Lambda (O₂) | λ | 0 – 1.5 | `0x14`–`0x1B` |
+| Tension batterie | V | 10 – 15 | `0x42` |
+| Pression MAP | kPa | 0 – 255 | `0x0B` |
+| Pression huile | kPa | 0 – 600 | `0x5C` |
+
+---
+
+## 📁 Structure des fichiers
 
 ```
-lib/
-├── main.dart                     # Point d'entrée — détection premier lancement
-├── core/
-│   ├── constants.dart            # Couleurs, clés de stockage, constantes
-│   └── theme.dart                # Thème sombre automobile (Material 3)
-├── models/
-│   ├── vehicle_data.dart         # Données OBD-II temps réel
-│   └── diagnosis_record.dart     # Modèle historique (sauvegarde locale)
-├── services/
-│   ├── storage_service.dart      # SharedPreferences (IP, véhicule, historique)
-│   └── websocket_service.dart    # Communication WebSocket ↔ Raspberry Pi
-└── screens/
-    ├── setup_screen.dart         # Écran de configuration (premier lancement)
-    ├── main_screen.dart          # Navigation principale (3 onglets)
-    ├── dashboard_screen.dart     # Jauges OBD-II + boutons diagnostic/vocal
-    ├── analysis_screen.dart      # Affichage résultat IA + sauvegarde
-    ├── history_screen.dart       # Historique local des diagnostics
-    └── settings_screen.dart      # Modifier IP, port, véhicule
+SEDAI_APP/
+├── lib/
+│   ├── main.dart                     → Point d'entrée — détection premier lancement
+│   ├── core/
+│   │   ├── constants.dart            → Couleurs, clés de stockage, constantes
+│   │   └── theme.dart                → Thème sombre automobile (Material 3)
+│   ├── models/
+│   │   ├── vehicle_data.dart         → Modèle des données OBD-II temps réel
+│   │   └── diagnosis_record.dart     → Modèle historique (sauvegarde locale)
+│   ├── services/
+│   │   ├── storage_service.dart      → SharedPreferences (IP, véhicule, historique)
+│   │   └── websocket_service.dart    → Communication WebSocket ↔ Raspberry Pi
+│   └── screens/
+│       ├── setup_screen.dart         → Configuration initiale (premier lancement)
+│       ├── main_screen.dart          → Navigation principale (3 onglets)
+│       ├── dashboard_screen.dart     → Jauges OBD-II + boutons diagnostic/vocal
+│       ├── analysis_screen.dart      → Résultat IA + sauvegarde
+│       ├── history_screen.dart       → Historique local des diagnostics
+│       └── settings_screen.dart      → Modifier IP, port, véhicule
+├── windows/                          → Configuration build Windows
+├── android/                          → Configuration build Android
+├── web/                              → Configuration build Web
+├── assets/                           → Images, polices, icônes
+└── pubspec.yaml                      → Dépendances Flutter
 ```
 
 ---
 
-## Jauges disponibles sur le Dashboard
-
-| Jauge          | Unité | Plage       | Source OBD-II    |
-|----------------|-------|-------------|------------------|
-| Vitesse        | km/h  | 0 – 220     | PID 0x0D         |
-| Régime moteur  | RPM   | 0 – 8 000   | PID 0x0C         |
-| Temp. moteur   | °C    | 0 – 130     | PID 0x05         |
-| Débit air MAF  | g/s   | 0 – 40      | PID 0x10         |
-| Lambda (O₂)    | λ     | 0 – 1.5     | PID 0x14–0x1B    |
-| Batterie       | V     | 10 – 15     | PID 0x42         |
-| Pression MAP   | kPa   | 0 – 255     | PID 0x0B         |
-| Pression huile | kPa   | 0 – 600     | PID 0x5C         |
-
----
-
-## Fonctionnalités
-
-- **Premier lancement** : écran de configuration (IP Raspberry Pi, port, marque/modèle/moteur)
-- **Dashboard** : 8 jauges radiales animées avec plages d'alerte colorées
-- **Diagnostic IA** : envoi de la commande au Raspberry Pi + affichage du rapport (Phi-3 Mini / Gemma3 4B)
-- **Push-to-Talk** : bouton microphone qui active/désactive l'écoute du microphone USB branché sur le Raspberry Pi
-- **Historique** : sauvegarde locale des diagnostics avec aperçu, détail, et suppression
-- **Paramètres** : modification de l'IP, du port et des informations véhicule à tout moment
-
----
-
-## Installation
+## 🚀 Installation et lancement
 
 ### Prérequis
-- Flutter SDK ≥ 3.0
-- Android SDK ou Xcode (pour iOS)
+
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) ≥ 3.0
+- Windows 10 ou supérieur (pour le build Windows)
+- Android SDK (pour le build Android)
 
 ### Commandes
 
 ```bash
-# Cloner / extraire le projet
-cd auto_japan_diagnostic
+# 1. Se placer dans le dossier
+cd SEDAI/SEDAI_APP
 
-# Installer les dépendances
+# 2. Récupérer les dépendances
 flutter pub get
 
-# Lancer sur Android
+# 3. Lancer sur Windows
+flutter run -d windows
+
+# 4. Lancer sur Android
 flutter run
 
-# Construire l'APK
+# 5. Lancer dans le navigateur (Chrome)
+flutter run -d chrome
+```
+
+---
+
+## 🔗 Connexion au Raspberry Pi
+
+1. Assurez-vous que le Raspberry Pi est sur le **même réseau Wi-Fi** que votre appareil
+2. Au premier lancement, l'application affiche un écran de configuration
+3. Entrez l'**adresse IP** du Raspberry Pi (ex: `192.168.1.42`) et le **port** (`8765` par défaut)
+4. L'application se connecte automatiquement via WebSocket
+
+---
+
+## 🛠️ Build de production
+
+```bash
+# Windows (exécutable .exe)
+flutter build windows
+
+# Android (APK)
 flutter build apk --release
 
-# Construire pour iOS
-flutter build ios --release
+# Web (dossier build/web/)
+flutter build web
 ```
 
 ---
 
-## Communication WebSocket avec le Raspberry Pi
+## 📦 Dépendances Flutter
 
-### Format des messages envoyés (App → Raspberry Pi)
-
-**Lancer un diagnostic IA :**
-```json
-{
-  "action": "diagnostic",
-  "vehicle": {
-    "marque": "Toyota",
-    "modele": "Corolla",
-    "moteur": "1.8L essence"
-  }
-}
-```
-
-**Activer le microphone USB (Push-to-Talk) :**
-```json
-{
-  "action": "voice_activate",
-  "vehicle": { "marque": "...", "modele": "...", "moteur": "..." }
-}
-```
-
-**Désactiver le microphone USB :**
-```json
-{ "action": "voice_deactivate" }
-```
-
-### Format des messages reçus (Raspberry Pi → App)
-
-**Données OBD-II en temps réel :**
-```json
-{
-  "type": "vehicle_data",
-  "payload": {
-    "vitesse": 65.0,
-    "regime": 2200.0,
-    "temp_moteur": 88.0,
-    "maf": 12.5,
-    "lambda": 0.98,
-    "batterie": 13.8,
-    "pression_map": 85.0,
-    "pression_huile": 250.0
-  }
-}
-```
-
-**Résultat du diagnostic IA :**
-```json
-{
-  "type": "diagnosis",
-  "payload": {
-    "text": "Rapport de l'IA ici…"
-  }
-}
-```
+| Package | Version | Rôle |
+|---|---|---|
+| `web_socket_channel` | ^2.4.0 | Communication WebSocket avec le Raspberry Pi |
+| `syncfusion_flutter_gauges` | ^33.1.45 | Jauges radiales animées du dashboard |
+| `google_fonts` | ^6.3.3 | Police Exo (thème automobile) |
+| `shared_preferences` | ^2.5.4 | Sauvegarde locale (IP, historique, véhicule) |
+| `pdf` | ^3.12.0 | Génération de rapports PDF |
+| `printing` | ^5.13.1 | Impression et export PDF |
+| `intl` | ^0.19.0 | Formatage des dates |
 
 ---
 
-## Dépendances Flutter
+## 🐛 Dépannage rapide
 
-| Package                   | Version  | Rôle                           |
-|---------------------------|----------|--------------------------------|
-| web_socket_channel        | ^2.4.0   | Communication WebSocket        |
-| syncfusion_flutter_gauges | ^23.1.36 | Jauges radiales animées        |
-| google_fonts              | ^6.1.0   | Police Exo (thème automobile)  |
-| shared_preferences        | ^2.2.2   | Stockage local (IP, historique)|
-| flutter_animate           | ^4.2.0   | Animations d'interface         |
-| intl                      | ^0.19.0  | Formatage des dates            |
+| Problème | Solution |
+|---|---|
+| `WebSocket connection failed` | Vérifier l'IP du Raspberry Pi dans Paramètres, s'assurer que `main.py` tourne |
+| `Jauges figées à 0` | La connexion WebSocket est établie mais aucune donnée OBD ne remonte — vérifier l'ELM327 |
+| `Erreur PathExistsException` au build Windows | Lancer `flutter clean` puis `flutter pub get` |
+| `Rapport PDF vide` | Vérifier que le diagnostic a bien été reçu et sauvegardé dans l'historique |
