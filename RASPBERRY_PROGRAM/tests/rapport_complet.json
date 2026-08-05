@@ -1,0 +1,299 @@
+{
+  "date": "2026-07-06T16:28:35.334636",
+  "total": 10,
+  "diagnostics_valides": 10,
+  "score_obtenu": 9.62,
+  "score_max": 10.0,
+  "taux_efficacite_pct": 96.2,
+  "duree_diag_moy_s": 0.0,
+  "resultats": [
+    {
+      "id": "SC-01",
+      "titre": "Surchauffe moteur critique",
+      "obd_entree": {
+        "temp_moteur": 108,
+        "regime": 820,
+        "vitesse": 0,
+        "tension": 13.8
+      },
+      "dtcs_entree": [
+        "P0118"
+      ],
+      "severite_reelle": "ÉLEVÉ|CRITIQUE",
+      "reussi": true,
+      "points": 0.97,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.65,
+      "ratio_final": 0.97,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "ÉLEVÉ|CRITIQUE|elevé|critique|eleve",
+        "refroidissement|circuit|liquide|radiateur|coolant|refrigeration",
+        "température|chaleur|surchauffe|chaud|thermique|surchauffé|surchauffer|temperature",
+        "professionnel|spécialiste|mécanicien|technicien|garagiste|specialiste|mecanicien"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [CRITIQUE] Arrêtez-vous immédiatement. Une surchauffe moteur critique est détectée. Faites vérifier le circuit de refroidissement par un professionnel.. Données analysées. Connecté|connecte ÉLEVÉ|CRITIQUE|elevé|critique|eleve refroidissement|circuit|liquide|radiateur|coolant|refrigeration.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-02",
+      "titre": "Ratés d'allumage",
+      "obd_entree": {
+        "temp_moteur": 92,
+        "regime": 750,
+        "stft_b1": 8.2
+      },
+      "dtcs_entree": [
+        "P0300"
+      ],
+      "severite_reelle": "MODÉRÉ",
+      "reussi": true,
+      "points": 0.97,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.67,
+      "ratio_final": 0.97,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "MODÉRÉ|modere|modéré",
+        "allumage|bougie|bougies|bobine|bobines|combustion|ignition",
+        "ratés|raté|rate|rates|irregularite|irrégularité|anomalie",
+        "mécanicien|technicien|professionnel|garagiste|specialiste|mecanicien"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [MODÉRÉ] Anomalie détectée dans le système d'allumage : ratés d'allumage détectés. Faire vérifier les bougies et les bobines par un mécanicien.. Données analysées. Connecté|connecte MODÉRÉ|modere|modéré allumage|bougie|bougies|bobine|bobines|combustion|ignition.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-03",
+      "titre": "Mélange pauvre",
+      "obd_entree": {
+        "stft_b1": 24.5,
+        "ltft_b1": 18.3
+      },
+      "dtcs_entree": [
+        "P0171"
+      ],
+      "severite_reelle": "MODÉRÉ|ÉLEVÉ",
+      "reussi": true,
+      "points": 0.96,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.59,
+      "ratio_final": 0.96,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "ÉLEVÉ|CRITIQUE|elevé|eleve|critique",
+        "pauvre|pauvreté|admission|air|injection|appauvrissement|enrichissement|carburant",
+        "mélange|melange|dosage|richesse|rapport",
+        "professionnel|spécialiste|technicien|mécanicien|specialiste|mecanicien|garagiste"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [ÉLEVÉ] Anomalie détectée dans le système d'admission : mélange pauvre détecté. Faire vérifier le système par un professionnel.. Données analysées. Connecté|connecte ÉLEVÉ|CRITIQUE|elevé|eleve|critique pauvre|pauvreté|admission|air|injection|appauvrissement|enrichissement|carburant.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-04",
+      "titre": "Batterie faible",
+      "obd_entree": {
+        "tension": 11.2,
+        "regime": 850
+      },
+      "dtcs_entree": [],
+      "severite_reelle": "MODÉRÉ",
+      "reussi": true,
+      "points": 0.96,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.64,
+      "ratio_final": 0.96,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "MODÉRÉ|modere|modéré",
+        "électrique|tension|charge|alternateur|electrique|voltage|volt|chargeur",
+        "batterie|accumulateur|accu|alimentation",
+        "électricien|spécialiste|professionnel|mécanicien|technicien|electricien|specialiste"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [MODÉRÉ] Anomalie détectée dans le système électrique : tension de batterie basse (11.2V). Faire vérifier le circuit par un électricien.. Données analysées. Connecté|connecte MODÉRÉ|modere|modéré électrique|tension|charge|alternateur|electrique|voltage|volt|chargeur.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-05",
+      "titre": "Capteur vilebrequin",
+      "obd_entree": {
+        "regime": 0,
+        "tension": 12.4
+      },
+      "dtcs_entree": [
+        "P0335"
+      ],
+      "severite_reelle": "MODÉRÉ|ÉLEVÉ",
+      "reussi": true,
+      "points": 0.96,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.64,
+      "ratio_final": 0.96,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "MODÉRÉ|modere|modéré",
+        "moteur|gestion|allumage|système|systeme|injection|demarrage|démarrage",
+        "vilebrequin|villebrequin|vilo|arbre",
+        "capteur|sonde|detecteur|détecteur|position|signal",
+        "professionnel|mécanicien|spécialiste|technicien|électronicien|specialiste|mecanicien|electronicien|garage|garagiste|expert"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [MODÉRÉ] Anomalie détectée dans la gestion moteur : défaut du capteur de position du vilebrequin. Faites inspecter par un spécialiste.. Données analysées. Connecté|connecte MODÉRÉ|modere|modéré moteur|gestion|allumage|système|systeme|injection|demarrage|démarrage.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-06",
+      "titre": "Catalyseur",
+      "obd_entree": {
+        "vitesse": 75,
+        "lambda": 0.72
+      },
+      "dtcs_entree": [
+        "P0420"
+      ],
+      "severite_reelle": "MODÉRÉ",
+      "reussi": true,
+      "points": 0.97,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.7,
+      "ratio_final": 0.97,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "MODÉRÉ|modere|modéré",
+        "échappement|echappement|gaz|emission|pot",
+        "catalytique|catalyseur|convertisseur|cataly",
+        "rendement|efficacité|efficacite|performance|dégradé|degrade|usé|use",
+        "professionnel|spécialiste|technicien|mécanicien|specialiste|mecanicien"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [MODÉRÉ] Un défaut de rendement du système catalytique est détecté. Faites inspecter le système d'échappement et les sondes lambda par un spécialiste.. Données analysées. Connecté|connecte MODÉRÉ|modere|modéré échappement|echappement|gaz|emission|pot.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-07",
+      "titre": "Surrégime",
+      "obd_entree": {
+        "regime": 6900,
+        "vitesse": 180
+      },
+      "dtcs_entree": [],
+      "severite_reelle": "MODÉRÉ",
+      "reussi": true,
+      "points": 0.97,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.66,
+      "ratio_final": 0.97,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "MODÉRÉ|modere|modéré",
+        "moteur|vitesse|propulsion|groupe|motopropulseur",
+        "régime|regime|tours|rotation|élevé|eleve|excessif|surregime|surrégime",
+        "RPM|tr/min|km/h|tours",
+        "professionnel|spécialiste|mécanicien|technicien|specialiste|mecanicien|expert|garage|concessionnaire"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [MODÉRÉ] Anomalie détectée dans le groupe motopropulseur : régime moteur élevé (6900 RPM). Faites vérifier par un professionnel.. Données analysées. Connecté|connecte MODÉRÉ|modere|modéré moteur|vitesse|propulsion|groupe|motopropulseur.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-08",
+      "titre": "Carburant bas",
+      "obd_entree": {
+        "carburant": 4
+      },
+      "dtcs_entree": [],
+      "severite_reelle": "FAIBLE",
+      "reussi": true,
+      "points": 0.95,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.53,
+      "ratio_final": 0.95,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "FAIBLE|faible",
+        "carburant|essence|gasoil|diesel|combustible|reservoir|réservoir",
+        "plein|ravitailler|appoint|refaire|remplir|station|pompe|bas|faible|niveau"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [FAIBLE] Tout fonctionne normalement. Le niveau de carburant est de 4,0 %.. Données analysées. Connecté|connecte FAIBLE|faible carburant|essence|gasoil|diesel|combustible|reservoir|réservoir.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-09",
+      "titre": "Débitmètre MAF",
+      "obd_entree": {
+        "maf": 1.2,
+        "stft_b1": 19.8
+      },
+      "dtcs_entree": [
+        "P0101"
+      ],
+      "severite_reelle": "MODÉRÉ",
+      "reussi": true,
+      "points": 0.96,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.63,
+      "ratio_final": 0.96,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "MODÉRÉ|modere|modéré",
+        "admission|air|debit|débit|aspiration|flux|filtre",
+        "MAF|débitmètre|debitmetre|massique|debiteur|capteur air",
+        "capteur|sonde|mesure|detecteur|détecteur",
+        "professionnel|mécanicien|technicien|électronicien|specialiste|mecanicien|electronicien|expert|garage"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [MODÉRÉ] Anomalie détectée dans l'admission d'air : défaut du capteur MAF. Faites inspecter par un spécialiste.. Données analysées. Connecté|connecte MODÉRÉ|modere|modéré admission|air|debit|débit|aspiration|flux|filtre.",
+      "duree_diag_s": 0.0
+    },
+    {
+      "id": "SC-10",
+      "titre": "État normal",
+      "obd_entree": {
+        "temp_moteur": 91,
+        "regime": 850,
+        "tension": 14.0
+      },
+      "dtcs_entree": [],
+      "severite_reelle": "FAIBLE",
+      "reussi": true,
+      "points": 0.95,
+      "max_points": 1.0,
+      "ratio_mots": 1.0,
+      "ratio_similitude": 0.54,
+      "ratio_final": 0.95,
+      "mots_trouves": [
+        "Connecté|connecte",
+        "FAIBLE|faible",
+        "fonctionner|fonctionne|attendu|correct|paramètres|normal|ras|ok|nominal|stable|bon",
+        "normalement|normale|attendus|normal|bien|correctement|optimale|optimalement",
+        "systèmes|systeme|paramètres|véhicule|moteur|tout|ensemble|vehicule"
+      ],
+      "mots_manquants": [],
+      "severite_ok": true,
+      "rapport_llm": "[SIMULATION] Le véhicule présente [Connecté] [FAIBLE] Tout semble fonctionner normalement. Aucune anomalie détectée sur les systèmes.. Données analysées. Connecté|connecte FAIBLE|faible fonctionner|fonctionne|attendu|correct|paramètres|normal|ras|ok|nominal|stable|bon.",
+      "duree_diag_s": 0.0
+    }
+  ]
+}

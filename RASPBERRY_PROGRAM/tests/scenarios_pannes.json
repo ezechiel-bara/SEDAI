@@ -1,0 +1,220 @@
+[
+  {
+    "id": "SC-01",
+    "titre": "Surchauffe moteur critique",
+    "description": "Température moteur > 105°C avec DTC P0118",
+    "obd_data": {
+      "temp_moteur": 108,
+      "regime": 820,
+      "vitesse": 0,
+      "tension": 13.8
+    },
+    "dtcs": [
+      "P0118"
+    ],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est critique. Arrêtez-vous immédiatement. Une surchauffe moteur critique est détectée. Faites vérifier le circuit de refroidissement par un professionnel.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "ÉLEVÉ|CRITIQUE|elevé|critique|eleve",
+      "refroidissement|circuit|liquide|radiateur|coolant|refrigeration",
+      "température|chaleur|surchauffe|chaud|thermique|surchauffé|surchauffer|temperature",
+      "professionnel|spécialiste|mécanicien|technicien|garagiste|specialiste|mecanicien"
+    ],
+    "severite_reelle": "ÉLEVÉ|CRITIQUE",
+    "action_reelle": "Arrêt immédiat. Vérifier liquide de refroidissement."
+  },
+  {
+    "id": "SC-02",
+    "titre": "Ratés d'allumage",
+    "description": "DTC P0300 présent",
+    "obd_data": {
+      "temp_moteur": 92,
+      "regime": 750,
+      "stft_b1": 8.2
+    },
+    "dtcs": [
+      "P0300"
+    ],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est modéré. Anomalie détectée dans le système d'allumage : ratés d'allumage détectés. Faire vérifier les bougies et les bobines par un mécanicien.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "MODÉRÉ|modere|modéré",
+      "allumage|bougie|bougies|bobine|bobines|combustion|ignition",
+      "ratés|raté|rate|rates|irregularite|irrégularité|anomalie",
+      "mécanicien|technicien|professionnel|garagiste|specialiste|mecanicien"
+    ],
+    "severite_reelle": "MODÉRÉ",
+    "action_reelle": "Vérifier le système d'allumage (bougies, bobines)."
+  },
+  {
+    "id": "SC-03",
+    "titre": "Mélange pauvre",
+    "description": "STFT très élevé avec P0171",
+    "obd_data": {
+      "stft_b1": 24.5,
+      "ltft_b1": 18.3
+    },
+    "dtcs": [
+      "P0171"
+    ],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est élevé. Anomalie détectée dans le système d'admission : mélange pauvre détecté. Faire vérifier le système par un professionnel.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "ÉLEVÉ|CRITIQUE|elevé|eleve|critique",
+      "pauvre|pauvreté|admission|air|injection|appauvrissement|enrichissement|carburant",
+      "mélange|melange|dosage|richesse|rapport|système|systeme",
+      "professionnel|spécialiste|technicien|mécanicien|specialiste|mecanicien|garagiste"
+    ],
+    "severite_reelle": "MODÉRÉ|ÉLEVÉ",
+    "action_reelle": "Vérifier fuites d'air admission ou débitmètre."
+  },
+  {
+    "id": "SC-04",
+    "titre": "Batterie faible",
+    "description": "Tension 11.2V sans DTC",
+    "obd_data": {
+      "tension": 11.2,
+      "regime": 850
+    },
+    "dtcs": [],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est modéré. Anomalie détectée dans le système électrique : tension de batterie basse (11.2V). Faire vérifier le circuit par un électricien.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "MODÉRÉ|modere|modéré",
+      "électrique|tension|charge|alternateur|electrique|voltage|volt|chargeur",
+      "batterie|accumulateur|accu|alimentation",
+      "électricien|spécialiste|professionnel|mécanicien|technicien|electricien|specialiste"
+    ],
+    "severite_reelle": "MODÉRÉ",
+    "action_reelle": "Tester batterie et circuit de charge alternateur."
+  },
+  {
+    "id": "SC-05",
+    "titre": "Capteur vilebrequin",
+    "description": "DTC P0335",
+    "obd_data": {
+      "regime": 0,
+      "tension": 12.4
+    },
+    "dtcs": [
+      "P0335"
+    ],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est modéré. Anomalie détectée dans la gestion moteur : défaut du capteur de position du vilebrequin. Faites inspecter par un spécialiste.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "MODÉRÉ|modere|modéré",
+      "moteur|gestion|allumage|système|systeme|injection|demarrage|démarrage",
+      "vilebrequin|villebrequin|vilo|arbre",
+      "capteur|sonde|detecteur|détecteur|position|signal",
+      "professionnel|mécanicien|spécialiste|technicien|électronicien|specialiste|mecanicien|electronicien|garage|garagiste|expert"
+    ],
+    "severite_reelle": "MODÉRÉ|ÉLEVÉ",
+    "action_reelle": "Vérifier câblage et état du capteur de vilebrequin."
+  },
+  {
+    "id": "SC-06",
+    "titre": "Catalyseur",
+    "description": "DTC P0420",
+    "obd_data": {
+      "vitesse": 75,
+      "lambda": 0.72
+    },
+    "dtcs": [
+      "P0420"
+    ],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est modéré. Un défaut de rendement du système catalytique est détecté. Faites inspecter le système d'échappement et les sondes lambda par un spécialiste.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "MODÉRÉ|modere|modéré",
+      "échappement|echappement|gaz|emission|pot",
+      "catalytique|catalyseur|convertisseur|cataly",
+      "rendement|efficacité|efficacite|performance|dégradé|degrade|usé|use",
+      "professionnel|spécialiste|technicien|mécanicien|specialiste|mecanicien"
+    ],
+    "severite_reelle": "MODÉRÉ",
+    "action_reelle": "Vérifier efficacité du convertisseur catalytique."
+  },
+  {
+    "id": "SC-07",
+    "titre": "Surrégime",
+    "description": "RPM > 6500",
+    "obd_data": {
+      "regime": 6900,
+      "vitesse": 180
+    },
+    "dtcs": [],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est modéré. Anomalie détectée dans le groupe motopropulseur : régime moteur élevé (6900 RPM). Faites vérifier par un professionnel.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "MODÉRÉ|modere|modéré",
+      "moteur|vitesse|propulsion|groupe|motopropulseur",
+      "régime|regime|tours|rotation|élevé|eleve|excessif|surregime|surrégime",
+      "RPM|tr/min|km/h|tours",
+      "professionnel|spécialiste|mécanicien|technicien|specialiste|mecanicien|expert|garage|concessionnaire"
+    ],
+    "severite_reelle": "MODÉRÉ",
+    "action_reelle": "Alerte régime moteur excessif."
+  },
+  {
+    "id": "SC-08",
+    "titre": "Carburant bas",
+    "description": "Niveau 4%",
+    "obd_data": {
+      "carburant": 4
+    },
+    "dtcs": [],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est faible. Tout fonctionne normalement. Le niveau de carburant est de 4,0 %.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "FAIBLE|faible",
+      "carburant|essence|gasoil|diesel|combustible|reservoir|réservoir",
+      "plein|ravitailler|appoint|refaire|remplir|station|pompe|bas|faible|niveau"
+    ],
+    "severite_reelle": "FAIBLE",
+    "action_reelle": "Faire le plein de carburant immédiatement."
+  },
+  {
+    "id": "SC-09",
+    "titre": "Débitmètre MAF",
+    "description": "P0101",
+    "obd_data": {
+      "maf": 1.2,
+      "stft_b1": 19.8
+    },
+    "dtcs": [
+      "P0101"
+    ],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est modéré. Anomalie détectée dans l'admission d'air : défaut du capteur MAF. Faites inspecter par un spécialiste.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "MODÉRÉ|modere|modéré",
+      "admission|air|debit|débit|aspiration|flux|filtre",
+      "MAF|débitmètre|debitmetre|massique|debiteur|capteur air",
+      "capteur|sonde|mesure|detecteur|détecteur",
+      "professionnel|mécanicien|technicien|électronicien|specialiste|mecanicien|electronicien|expert|garage"
+    ],
+    "severite_reelle": "MODÉRÉ",
+    "action_reelle": "Nettoyer ou remplacer le capteur MAF."
+  },
+  {
+    "id": "SC-10",
+    "titre": "État normal",
+    "description": "Données OK",
+    "obd_data": {
+      "temp_moteur": 91,
+      "regime": 850,
+      "tension": 14.0
+    },
+    "dtcs": [],
+    "diagnostic_attendu": "La connexion avec votre véhicule est établie. L'état de votre diagnostic est faible. Tout semble fonctionner normalement. Aucune anomalie détectée sur les systèmes.",
+    "mots_cles_attendus": [
+      "Connecté|connecte|connexion|etablie",
+      "FAIBLE|faible",
+      "fonctionner|fonctionne|attendu|correct|paramètres|normal|ras|ok|nominal|stable|bon",
+      "normalement|normale|attendus|normal|bien|correctement|optimale|optimalement",
+      "systèmes|systeme|paramètres|véhicule|moteur|tout|ensemble|vehicule"
+    ],
+    "severite_reelle": "FAIBLE",
+    "action_reelle": "Aucune intervention requise."
+  }
+]

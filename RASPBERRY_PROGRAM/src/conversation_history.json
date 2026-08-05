@@ -1,0 +1,18 @@
+[
+    {
+        "role": "user",
+        "content": "qui sont t'es créateurs"
+    },
+    {
+        "role": "assistant",
+        "content": "Le développement de ce système embarqué intelligent a été assuré par BARA Ezechiel Merveil et BOGNINOU Armel, étudiants en Maintenance des Systèmes (option automobile) de l'INSTI de Lokossa."
+    },
+    {
+        "role": "user",
+        "content": "on peut discuter de quoi sur les véhicules"
+    },
+    {
+        "role": "assistant",
+        "content": "Bien sûr, nous pouvons discuter de tout ce qui concerne votre véhicule! Je peux analyser les données en temps réel, vous expliquer les codes défauts (même s'il n'y en a pas pour le moment), et vous donner des informations sur le fonctionnement de différents systèmes comme le moteur, l'ABS, ou la transmission. N'hésitez pas à me poser vos questions, je suis là pour vous aider à comprendre ce qui se passe sous le capot."
+    }
+]
